@@ -61,6 +61,10 @@ ZSH_THEME="agnoster"
 plugins=(
     git
     brew
+    common-aliases
+    sudo
+    python
+    npm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -94,6 +98,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs $@"
+alias aog="~/Repos/aog_lib/"
+alias conf="~/Repos/configs/"
 # if [ -n "$INSIDE_EMACS" ]; then
 #   chpwd() { print -P "\033AnSiTc %d" }
 #   print -P "\033AnSiTu %n"
