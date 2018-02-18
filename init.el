@@ -15,17 +15,37 @@
 (package-initialize)
 
 (require 'multi-term)
-	
 
-(setenv "PATH"
-	(concat "/Library/Tex/texbin/" ";"
-		(getenv "PATH")
-		)
-	)
-;; let auto-complete to start when opening a file
-(ac-config-default)
-(global-auto-complete-mode t)
+;;to make auctex runs properly	
+(setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin/"))  
+(setq exec-path (append exec-path '("/Library/TeX/texbin/")))
+
+;;auto-complete and yasnippet for Latex
+(require 'yasnippet)
+(yas-global-mode 1)
+
+(require 'auto-complete)
+(add-to-list 'ac-modes 'latex-mode)
+(require 'ac-math)
+(defun my-ac-latex-mode () ; add ac-sources for latex
+   (setq ac-sources
+         (append '(ac-source-math-unicode
+           ac-source-math-latex
+           ac-source-latex-commands)
+                 ac-sources)))
+
+(add-hook 'LaTeX-mode-hook 'my-ac-latex-mode)
+(setq ac-math-unicode-in-math-p t)
+(ac-flyspell-workaround)
+(add-to-list 'ac-modes 'org-mode)
 (add-to-list 'ac-modes 'prolog-mode)
+(require 'auto-complete-config)
+(ac-config-default)
+(setq ac-auto-show-menu t)
+(global-auto-complete-mode t)
+
+
+;;useful setting
 (setq show-paren-delay 0)
 (show-paren-mode 1)
 (column-number-mode 1)
@@ -36,6 +56,7 @@
 (menu-bar-mode -1)
 (setq inhibit-startup-screen t)
 (scroll-bar-mode -1)
+
 ;;nlinum setting
 (global-nlinum-mode 1)
 ;;avoid horizontal jump on scrolling
@@ -106,7 +127,7 @@
  '(org-fontify-whole-heading-line t)
  '(package-selected-packages
    (quote
-    (auctex multi-term zenburn-theme solarized-theme solaire-mode nlinum neotree flycheck doom-themes blackboard-theme auto-complete all-the-icons-dired)))
+    (yasnippet-snippets yasnippet ac-math auctex multi-term zenburn-theme solarized-theme solaire-mode nlinum neotree flycheck doom-themes blackboard-theme auto-complete all-the-icons-dired)))
  '(vc-annotate-background "#1c1f24")
  '(vc-annotate-color-map
    (list
