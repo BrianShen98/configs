@@ -35,10 +35,13 @@
                  ac-sources)))
 
 (add-hook 'LaTeX-mode-hook 'my-ac-latex-mode)
-(setq ac-math-unicode-in-math-p t)
+
 (ac-flyspell-workaround)
 (add-to-list 'ac-modes 'org-mode)
 (add-to-list 'ac-modes 'prolog-mode)
+(defun ac-org-mode-setup()
+  add-to-list 'ac-sources 'ac-math-symbols-unicode)
+(add-hook 'org-mode-hook 'ac-org-mode-setup)
 (require 'auto-complete-config)
 (ac-config-default)
 (setq ac-auto-show-menu t)

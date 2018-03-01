@@ -100,6 +100,7 @@ fi
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs $@"
 alias aog="~/Repos/aog_lib/"
 alias conf="~/Repos/configs/"
+alias vcla="~/Desktop/OneDrive - personalmicrosoftsoftware.ucla.edu/Brian Shen/UCLA/VCLA/"
 # if [ -n "$INSIDE_EMACS" ]; then
 #   chpwd() { print -P "\033AnSiTc %d" }
 #   print -P "\033AnSiTu %n"
