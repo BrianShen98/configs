@@ -26,6 +26,9 @@
 
 (require 'auto-complete)
 (add-to-list 'ac-modes 'latex-mode)
+
+
+
 (require 'ac-math)
 (defun my-ac-latex-mode () ; add ac-sources for latex
    (setq ac-sources
@@ -44,6 +47,9 @@
 (add-hook 'org-mode-hook 'ac-org-mode-setup)
 (require 'auto-complete-config)
 (ac-config-default)
+;;enable yasnippet in auto-complete in all modes
+(setq-default ac-sources (push 'ac-source-yasnippet ac-sources))
+
 (setq ac-auto-show-menu t)
 (global-auto-complete-mode t)
 
