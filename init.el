@@ -17,9 +17,10 @@
 (require 'multi-term)
 
 ;;to make auctex runs properly	
-(setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin/"))  
-(setq exec-path (append exec-path '("/Library/TeX/texbin/")))
-
+(setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin/:/usr/local/bin/"))  
+(setq exec-path (append exec-path '(":/Library/TeX/texbin/:/usr/local/bin/")))
+(setq preview-gs-command
+       "/usr/local/bin/gs")
 ;;auto-complete and yasnippet for Latex
 (require 'yasnippet)
 (yas-global-mode 1)
