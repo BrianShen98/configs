@@ -94,7 +94,7 @@
 (setq inhibit-compacting-font-caches t)
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 ;;neotree setting
-(global-set-key [f1] 'neotree-toggle)
+(global-set-key [f8] 'neotree-toggle)
 (setq neo-theme 'icons)
 ;;doom-theme setting
 (require 'doom-themes)
@@ -117,7 +117,9 @@
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 
-
+;; (setq-default indent-tabs-mode nil)
+(setq c-default-style "linux"
+	      c-basic-offset 4)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
